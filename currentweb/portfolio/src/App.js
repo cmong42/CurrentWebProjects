@@ -3,20 +3,65 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Listings from './Listings';
 import Navbar from './Navbar';
+import $ from "jquery"
+import 'jquery-ui-bundle';
+import 'jquery-ui-bundle/jquery-ui.css';
+import { Component } from 'react';
+import Example from './Example';
+import { v4 as uuidv4 } from "uuid";
 
-function App() {
-  return (
+
+class App extends Component {
+ 
+  componentDidMount(){
+    let toggleVal = false;
+    $("#container").hide();
+    $(function(){
+      $('#container').show(4000);
+      $("#buttonId").animate("slide", { direction: "left" }, 3000); 
+      toggleVal=false
+    })
+    $('#buttonId').on('click', function(){
+      if (!toggleVal){
+      $('#container').hide("slow");
+      $("#buttonId").animate("slide", { direction: "right" }, 3000);
+      toggleVal=true  
+      }else{
+        $('#container').show(4000);
+        $("#buttonId").animate("slide", { direction: "left" }, 3000); 
+        toggleVal=false
+      }
+    })
+  }
+  render(){ 
+    let cards = [
+      {
+        key: uuidv4(),
+        content: <embed type="text/html" src="https://d-and-d-randomizer.herokuapp.com/"  width="700" height="500"/>
+      },
+      {
+        key: uuidv4(),
+        content: <iframe frameborder="1" width="700px" height="500px" src="https://replit.com/@ChristineOng1/turtles2?embed=true"></iframe>
+      },
+      {
+        key: uuidv4(),
+        content: <iframe frameborder="1" width="700px" height="500px" src="https://replit.com/@ChristineOng1/turtles?embed=true"></iframe>
+      }
+
+    ];
+    return(
     <div className="App">
       <div class="container">
       <div class="scroll-container">
       <div class="scroll-page" id="page-1">
-        <div class="row" id="abouttitle">
+       
+        <div class="row" id="buttonId">
       <h3>About Me</h3>
       </div>
-      <div class="row aboutcontent">
-        <p><br/><br/><br/><br/>Hello. My name is Christine Ong. I am a data science student with experience in software and full-stack development.</p>
-        <p>Below, I've created an interactive portfolio highlighting my skills and past projects I've worked on.</p>
-        <p>Enjoy!</p>
+      <div class="row aboutcontent" id="container">
+        <p id="one"><br/><br/><br/><br/>Hello, my name is Christine Ong. I am a data science student with experience in software and full-stack development.</p>
+        <p id="two">Below, I've created an interactive portfolio highlighting my skills and past projects I've worked on.</p>
+        <p >Enjoy!</p>
         </div>
       </div>
         <div class="row">
@@ -42,11 +87,20 @@ function App() {
     <br></br>
     <div class="scroll-page" id="page-3">
       <h3>Projects</h3>
+      <Example
+        cards={cards}
+        height="500px"
+        width="80%"
+        margin="0 auto"
+        offset={2}
+        showArrows={true}
+      />
     </div>
     </div>
     </div>
     </div>
-  );
+  )
+  };
 }
 
 export default App;
