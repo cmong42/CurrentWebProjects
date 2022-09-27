@@ -46,8 +46,11 @@ class App extends Component {
       {
         key: uuidv4(),
         content: <iframe frameborder="1" width="700px" height="500px" src="https://replit.com/@ChristineOng1/turtles?embed=true"></iframe>
+      },
+      {
+        key: uuidv4(),
+        content: <iframe frameborder="1" width="700px" height="500px" src="./TNTech_Alumni_Version3.html"></iframe>
       }
-
     ];
     return(
     <div className="App">
@@ -60,6 +63,7 @@ class App extends Component {
       </div>
       <div class="row aboutcontent" id="container">
         <p id="one"><br/><br/><br/><br/>Hello, my name is Christine Ong. I am a data science student with experience in software and full-stack development.</p>
+        <p>I have interned at Tennessee Valley Authority and worked with a team to create a proprietary API and web application to alert users to ongoing alarms in their nuclear facility.</p>
         <p id="two">Below, I've created an interactive portfolio highlighting my skills and past projects I've worked on.</p>
         <p >Enjoy!</p>
         </div>
