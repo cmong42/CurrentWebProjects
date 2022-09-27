@@ -46,10 +46,6 @@ class App extends Component {
       {
         key: uuidv4(),
         content: <iframe frameborder="1" width="700px" height="500px" src="https://replit.com/@ChristineOng1/turtles?embed=true"></iframe>
-      },
-      {
-        key: uuidv4(),
-        content: <iframe frameborder="1" width="700px" height="500px" src="./TNTech_Alumni_Version3.html"></iframe>
       }
     ];
     return(
