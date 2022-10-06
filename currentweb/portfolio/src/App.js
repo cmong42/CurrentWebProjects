@@ -27,7 +27,7 @@ class App extends Component {
       $("#buttonId").animate("slide", { direction: "right" }, 3000);
       toggleVal=true  
       }else{
-        $('#container').show(4000);
+        $('#container').show(3000);
         $("#buttonId").animate("slide", { direction: "left" }, 3000); 
         toggleVal=false
       }
@@ -67,6 +67,7 @@ class App extends Component {
         <div class="row">
         <div class="scroll-page" id="page-2">
       <h3>Skills</h3>
+      <h4>Hover over each card to view information</h4>
       </div>
       <div class="row">
       <div class="col-sm">
